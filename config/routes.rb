@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :student_users
   resources :teachers do 
     resources :lessons
   end
