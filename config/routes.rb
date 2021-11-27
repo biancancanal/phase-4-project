@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :teachers do 
-    resources :lessons
-  end
+  # resources :lessons
+  # resources :teachers
+  # resources :users
+  # resources :teachers do 
+  #   end
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

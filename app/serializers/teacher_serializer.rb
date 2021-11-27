@@ -1,3 +1,3 @@
 class TeacherSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :username, :bio
 end
