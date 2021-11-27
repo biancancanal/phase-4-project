@@ -5,7 +5,6 @@
     "node": "14.14.0"
   },
   "scripts": {
-    "start": "npm --openssl-legacy-provider start",
     "build": "npm install --prefix client && npm run build --prefix client",
     "clean": "rm -rf public",
     "deploy": "cp -a client/build/. public/",
