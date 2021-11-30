@@ -27,20 +27,20 @@ useEffect(() => {
     )
   })
 
-  const LogInButton = (() => {
-    fetch('/login')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
-  })
+  // const LogInButton = (() => {
+  //   fetch('/login')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //     console.log(data)
+  //   })
+  // })
 
 
 
   return (
     <div>
       <header>  
-        <button onClick={LogInButton}> Log In </button> 
+        <button><Link to='/login'> Log In</Link> </button> 
         </header>
       <header>Sign Up</header>
       <h1> Public Dance Schedule </h1>
