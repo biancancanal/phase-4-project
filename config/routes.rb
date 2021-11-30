@@ -4,6 +4,7 @@ resources :lessons, only: [:index, :show, :create, :update, :destroy]
 post "/signup", to: "teachers#create"
 get "/me", to: "teachers#show"
 post "/login", to: "sessions#create"
+get "/login", to: "sessions#show"
 delete "/logout", to: "sessions#destroy"
 
 

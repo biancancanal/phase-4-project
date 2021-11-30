@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import LogIn from './components/LogIn.js';
 import './App.css';
 
 function App() {
   const [lessons, setLessons] = useState([])
   
-  // state = {
-  //   lessons: []
-  // }
   
 useEffect(() => {
     fetch('/lessons')
@@ -27,19 +26,22 @@ useEffect(() => {
     </div>
     )
   })
-  // console.log(lessonsList)
-  // console.log(this.setLessons.title)
 
-  // const LogInButton = {
-  //   return (
+  const LogInButton = (() => {
+    fetch('/login')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+    })
+  })
 
-  //   )
-  // }
 
 
   return (
     <div>
-      <header>Log In</header>
+      <header>  
+        <button onClick={LogInButton}> Log In </button> 
+        </header>
       <header>Sign Up</header>
       <h1> Public Dance Schedule </h1>
       {lessonsList}
@@ -51,8 +53,10 @@ export default App;
 
 
 //At Least Six
-//Lessons Post Request 
+ 
 //Login Post request
-//Lesson Delete request
+//Login Get request
 //Logout request 
-//
+//Lesson Delete request
+//Lesson Add Request
+//Lessons Post Request
