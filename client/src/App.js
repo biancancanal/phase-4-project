@@ -1,62 +1,24 @@
-import React, { useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import LogIn from './components/LogIn.js';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import LogIn from './LogIn';
+import Home from './pages/Home';
+import Lessons from './pages/Lessons';
+
+
 
 function App() {
-  const [lessons, setLessons] = useState([])
-  
-  
-useEffect(() => {
-    fetch('/lessons')
-    .then(res => res.json())
-    .then(data => {
-        // console.log(data)
-        setLessons(data)
-    })
-}, [])
-
-  const lessonsList = lessons.map(l => {
-    return (
-      <div key={l.id}> 
-      <h2 >{l.title}</h2>
-      <p>{l.description}</p>
-      <p>{l.teacher.name}</p>
-
-    </div>
-    )
-  })
-
-  // const LogInButton = (() => {
-  //   fetch('/login')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     console.log(data)
-  //   })
-  // })
-
-
-
   return (
-    <div>
-      <header>  
-        <button><Link to='/login'> Log In</Link> </button> 
-        </header>
-      <header>Sign Up</header>
-      <h1> Public Dance Schedule </h1>
-      {lessonsList}
-    </div>
-  );
-}
+    <div className="App">
+    <Router>
 
-export default App;
+        <Switch>
+          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/login" component={LogIn} />
+          {/* <Route exact path="/teachers/:id" component={Teacher} /> */}
+          {/* <Route exact path="/lessons" component={Lessons}/> */}
+          {/* <Route exact path="/teachers/:id/lesson" component={Lesson} /> */}
+        </Switch>
+      </Router>
+      </div>
+  )}
 
-
-//At Least Six
- 
-//Login Post request
-//Login Get request
-//Logout request 
-//Lesson Delete request
-//Lesson Add Request
-//Lessons Post Request
+      export default App;
