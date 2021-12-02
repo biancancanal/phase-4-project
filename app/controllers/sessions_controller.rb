@@ -5,17 +5,17 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        user = Teacher.find_by(username: params[:username])
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      render json: user
+        teacher = Teacher.find_by(username: params[:username])
+    if teacher&.authenticate(params[:password])
+      session[:teacher_id] = teacher.id
+      render json: teacher
     else
       render json: { errors: ["Invalid username or password"] }, status: :unauthorized
     end
     end
 
     def destroy
-        session.delete :user_id
+        session.delete :teacher_id
         head :no_content
     end
     

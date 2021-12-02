@@ -1,17 +1,17 @@
 import React, { useState, useEffect} from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './App.css';
+// import '../App.css';
 
-function LogIn({ setCurrentUser }) {
+function Home({ setCurrentUser }) {
   const [lessons, setLessons] = useState([])
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showForm, setShowForm] = useState(false)
-  // const history = useHistory()
+  const history = useHistory()
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch('/login', {
+    fetch('/me', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -22,7 +22,7 @@ function LogIn({ setCurrentUser }) {
         if (res.ok) {
           res.json().then(user => {
             setCurrentUser(user)
-            // history.push("/home")
+            history.push("/")
           })
         } else {
           res.json().then(errors => {
@@ -58,7 +58,7 @@ useEffect(() => {
         <div className="authForm">
 
         <form onSubmit={handleSubmit}>
-          <h1>Log In</h1>
+          <h4>Teacher Log In</h4>
           <p>
             <label 
               htmlFor="username"
@@ -85,33 +85,34 @@ useEffect(() => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </p>
-          <p><button type="submit">Log In</button></p>
-          <p>-- or --</p>
-          <p><Link to="/signup">Sign Up</Link></p>
+          <p><button type="submit">Submit Log In</button></p>
+          <p></p>
+          <p><button><Link to="/signup">Sign Up</Link></button></p>
         </form>
       </div>   
       )
   })
 
+  const text =  !showForm ? 'Teacher Log In' : 'Close Log In'
 
 
   return (
+   
     <div>
       <header>  
-        <button onClick={() => setShowForm(!showForm)}> Log In </button> 
+        <button onClick={() => setShowForm(!showForm) } > {text} </button> 
         {showForm && LogInForm()}
         </header>
-      {/* <header>Sign Up</header> */}
       <h1> Public Dance Schedule </h1>
       {lessonsList}
     </div>
   );
 }
 
-export default LogIn;
+export default Home;
 
 
-//At Least Six
+//At Least Six Fetch Requests
  
 //Login Post request
 //Login Get request

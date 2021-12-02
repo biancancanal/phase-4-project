@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import LogIn from './LogIn';
-import Home from './pages/Home';
-import Lessons from './pages/Lessons';
+import Home from './components/Home';
+import SignUp from './components/SignUp';
 
 
 
@@ -11,9 +10,8 @@ function App() {
     <Router>
 
         <Switch>
-          {/* <Route exact path="/" component={Home} /> */}
-          <Route exact path="/login" component={LogIn} />
-          {/* <Route exact path="/teachers/:id" component={Teacher} /> */}
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signup" component={SignUp} />
           {/* <Route exact path="/lessons" component={Lessons}/> */}
           {/* <Route exact path="/teachers/:id/lesson" component={Lesson} /> */}
         </Switch>
