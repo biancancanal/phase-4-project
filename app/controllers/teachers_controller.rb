@@ -6,9 +6,9 @@ class TeachersController < ApplicationController
 
     def show
         if current_user
-            render json: current_user
-        else 
-            render json: {}, status :unauthorized 
+            render json: current_user, status: :ok
+        # else 
+        #     render json: {}, status: :unauthorized 
         end 
     end
 

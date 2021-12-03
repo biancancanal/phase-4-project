@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Link, useHistory } from 'react-router-dom';
 
 
+
 function SignUp ({ setCurrentUser }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
