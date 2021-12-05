@@ -4,6 +4,7 @@ import { Switch, Route, NavLink, useHistory } from 'react-router-dom'
 
 function AuthenticatedHome ({ currentUser, setCurrentUser }) {
     const history = useHistory()
+
   
     const handleLogout = () => {
       fetch(`/logout`, {
@@ -17,10 +18,19 @@ function AuthenticatedHome ({ currentUser, setCurrentUser }) {
           }
         })
     }
+
+    const teacher = currentUser.each( u => {
+      return(
+        <div key={u.id}>
+          <p>{u.username}</p>
+        </div>
+      )
+    }
+    )
     return (
       <div >
+         <span>Logged in as {teacher} <button onClick={handleLogout}>Logout</button></span>
         <nav>
-          <span>Logged in as {currentUser.username} <button onClick={handleLogout}>Logout</button></span>
         </nav>
       </div>
     );

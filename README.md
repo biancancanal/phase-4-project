@@ -1,3 +1,7 @@
+# Common Errors
+    - source ~/.nvm/nvm.sh
+    - Nvm use 17
+
 # Project Template: React/Rails API
 
 ## Description
